@@ -1,0 +1,28 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "${workspaceFolder}/Build_Debug_Windows.bat",
+            "problemMatcher": {
+                "base": "$msCompile",
+                "fileLocation": "absolute"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "revealProblems": "onProblem",
+                "group": "build",
+				"panel": "shared",
+                "focus": false,
+                "showReuseMessage": false,
+                "clear": true
+            }
+        }
+    ]
+}

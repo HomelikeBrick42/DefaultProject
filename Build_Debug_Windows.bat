@@ -18,9 +18,9 @@ set name=DefaultProject
 set stack=-STACK:0x100000,0x100000
 set ignoredWarnings=-wd4281 -wd4100 -wd4189 -wd4200 -wd4101
 set libs=kernel32.lib user32.lib gdi32.lib
-set defines=-DWINDOWS=1 -DSLOW=1 -DRELEASE=0
+set defines=-DWINDOWS=1
 
 if not exist build mkdir build
 pushd build
-cl -fp:fast -fp:except- -nologo -GS- -Gs2147483647 -Gm- -GR- -EHa- -Oi -WX -W4 %includeDirs% %ignoredWarnings% %defines% -FC -Z7 -Fm%name%.map %files% /link /NODEFAULTLIB -entry:Main -subsystem:windows -incremental:no -opt:ref %stack% %libs% /OUT:%name%.exe
+cl -fp:fast -fp:except- -nologo -GS- -Gs2147483647 -Gm- -GR- -EHa- -Oi -O2 -WX -W4 %includeDirs% %ignoredWarnings% %defines% -FC -Z7 -Fm%name%.map %files% /link /NODEFAULTLIB -entry:Main -subsystem:windows -incremental:no -opt:ref %stack% %libs% /OUT:%name%.exe
 popd
